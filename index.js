@@ -8,7 +8,7 @@ app.listen(process.env.PORT || 3000);
 const {readFile,readFileSync} = require('fs');
 
 app.get('/',(request,response) => {
-    readFile('./index.html','utf-8',(err,html) => {
+    readFile('index.html','utf-8',(err,html) => {
 
         if(err){
             response.status(500).send("Sorry, Out of order");
