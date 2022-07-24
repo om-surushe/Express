@@ -3,12 +3,20 @@ const app = express();
 
 app.listen(process.env.PORT || 3000);
 
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
-//index.js
-app.get('/', (req, res) => {
-    // res.sendFile('index.html', { root: path.join(__dirname, 'public') });
-    res.send("Hello")
+const {readFile,readFileSync} = require('fs');
+
+app.get('/',(request,response) => {
+    readFile('./index.html','utf-8',(err,html) => {
+
+        if(err){
+            response.status(500).send("Sorry, Out of order");
+        }
+
+        response.send(html);
+
+    })
 })
 
 app.use('/favicon.ico', express.static('./download.jpg'));
