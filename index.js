@@ -7,7 +7,8 @@ app.use(express.static('public'))
 
 //index.js
 app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+    // res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+    res.send("Hello")
 })
 
 app.use('/favicon.ico', express.static('./download.jpg'));
