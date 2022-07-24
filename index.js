@@ -22,7 +22,7 @@ const { readFile, readFileSync } = require('fs');
 // })
 
 app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+    res.sendFile('./public/index.html');
 })
 
 app.use('/favicon.ico', express.static('./download.jpg'));
