@@ -14,7 +14,7 @@ app.get('/',logger,(req,res) => {
     // res.status(500).send("Hello");
     // res.json({message:"Hey there"});
     // res.download("index.js");
-    res.render('index',{name:"Om Surushe"});
+    res.render('index.ejs',{name:"Om Surushe"});
 });
 
 app.use(logger)
