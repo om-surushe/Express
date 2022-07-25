@@ -1,22 +1,14 @@
 const express = require('express');
-
 const app = express();
 
-app.listen(3000, () => console.log(`App available on http://localhost:3000`));
+app.listen(process.env.PORT || 3000);
 
-app.get('/',(req,res) => {
-    const {readFile,readFileSync} = require('fs');
+app.use(express.static('public'));
 
-    readFile('./index.html','utf-8',(err,html) => {
+//index.js
+app.get('/', (req, res) => {
+    res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+});
 
-        if(err){
-            response.status(500).send(err);
-        }
-
-        response.send(html);
-
-    })
-
-})
-
+// index.js
 module.exports = app
