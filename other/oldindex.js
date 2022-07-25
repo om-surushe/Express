@@ -3,19 +3,19 @@ const express = require('express');
 const app = express();
 
 // The normal way
-// const {readFile,readFileSync} = require('fs');
+const {readFile,readFileSync} = require('fs');
 
-// app.get('/',(request,response) => {
-//     readFile('./home.html','utf-8',(err,html) => {
+app.get('/',(request,response) => {
+    readFile('./home.html','utf-8',(err,html) => {
 
-//         if(err){
-//             response.status(500).send("Sorry, Out of order");
-//         }
+        if(err){
+            response.status(500).send("Sorry, Out of order");
+        }
 
-//         response.send(html);
+        response.send(html);
 
-//     })
-// })
+    })
+})
 
 // The promises way
 const {readFile} = require('fs').promises;
