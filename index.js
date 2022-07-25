@@ -30,3 +30,5 @@ function logger(req,res,next){
 }
 
 app.use('/users',userRouter);
+
+module.exports = app
